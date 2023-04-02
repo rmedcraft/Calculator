@@ -13,6 +13,8 @@ public class SimpleCalculator extends JFrame implements ActionListener {
     
     final int FRAME_WIDTH = 360;
     final int FRAME_HEIGHT = 320;
+
+    private boolean firstInput = false;
     // default constrcutor 
     public SimpleCalculator() { 
         // set ouput area
@@ -99,10 +101,18 @@ public class SimpleCalculator extends JFrame implements ActionListener {
             // something else with it
             output.setText(result);
             math_exp = result;
+            firstInput = true;
         } else {
+            // clears the input if the past answer is still in the text field
+            String numbers = "0123456789";
+            if(firstInput && numbers.contains(s)){
+                output.setText("");
+                math_exp = "";
+            }
             // adds the button to the expression
             math_exp += s;
             output.setText(output.getText() + s);
+            firstInput = false;
         }
     } 
 } 

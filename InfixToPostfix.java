@@ -37,7 +37,6 @@ Create a separate Stack class to implement the operator stack using arrays.
 
  */
 
-import java.io.*;
 import java.util.Scanner;
 
 class Stack
@@ -162,5 +161,6 @@ public class InfixToPostfix
         String math_exp = s.nextLine();
         String postfix_exp = InfixToPostfix.toPostfix(math_exp);
         System.out.println(postfix_exp);
+        s.close();
     }
 }
